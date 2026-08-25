@@ -42,3 +42,24 @@ The uploaded V9 workbook currently contains:
 Streamlit does not copy those totals. It recalculates every KPI directly from the lot-level
 expiry bucket and COGS, which prevents column-shift and range-extension errors.
 
+
+
+## Query / transformation logic reviewed for v2.1
+
+The original workbook relies on both worksheet formulas and query-style transformations. The Streamlit pipeline preserves the business logic in `src/data_pipeline.py` rather than depending on rendered Excel cells.
+
+| Query / derived step | Streamlit implementation | Review |
+|---|---|---|
+| Inventory as-of date | Mode of `Lot Expiration - Days Until Lot Expiration Source` | Preserved |
+| Current COGS | Prefer open-ended `Valid To` records, then latest `Valid From` | Preserved |
+| Forecast month ordering | Detect `YYYY-MM` columns and sort chronologically | Preserved |
+| Customer Master Demand | First forecast month | Preserved |
+| 6M Average Forecast | Mean of first six forecast months | Preserved |
+| 12M Forecast | Sum of first twelve forecast months | Preserved |
+| Days To Exp | Lot Expiration minus inferred as-of date | Preserved |
+| Days Left | Human-readable V9 countdown from Days To Exp | Restored to UI in v2.1 |
+| Expiry buckets | V9 thresholds through 36+ months | Preserved |
+| Dollar Amount | Quantity × COGS | Preserved |
+| V9 60% indicator | 60% of 9–12M qty when Month Ref is 3–6 | Preserved |
+
+The Data Quality page and all download/export controls are removed from the v2.1 app; backend validation remains available through `scripts/validate_data.py` and the test suite.

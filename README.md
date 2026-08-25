@@ -14,9 +14,7 @@ Approved visual reference: [`docs/UI_PREVIEW.png`](docs/UI_PREVIEW.png).
 - **SCM Planning** — six-month average demand, months of supply and 12-month shortage/overstock signals.
 - **Operations** — restricted/recall quantity, expired inventory and priority lot actions.
 - **Sales / Customer Service** — 0–12 month commercial-review candidates with channel-review flags.
-- **Lot Explorer** — searchable, filterable detail with CSV download.
-- **Data Quality & Refresh** — source lineage, mapping/COGS/forecast gaps and formula definitions.
-- **Excel export** — an on-demand, audit-friendly current-view workbook.
+- **Lot Explorer** — searchable, filterable lot-level detail.
 
 ## Governed source policy
 
@@ -91,3 +89,12 @@ Start with [START_HERE_CN.md](START_HERE_CN.md), then follow the complete
 - https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
 - https://docs.streamlit.io/deploy/streamlit-community-cloud/get-started/connect-your-github-account
 - https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app
+
+## v2.1 UI changes
+- Removed all Streamlit download controls for now.
+- Removed the Data Quality & Refresh navigation page; backend validation remains intact.
+- Converted global dropdowns to multi-select filters and expanded filter coverage.
+- Restored the V9 `Days Left` field in lot/action views.
+- Standardized displayed quantities and currency to comma-separated formats.
+- Lightened the selected sidebar navigation color and simplified the Covered Sources area.
+

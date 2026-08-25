@@ -5,7 +5,7 @@ from pathlib import Path
 import tomllib
 
 APP_TITLE = "SKU Inventory Monitor"
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.1.0"
 EXCLUDED_SOURCE_LABEL = "Product Status Mapping Master"
 
 _REGISTRY_PATH = Path(__file__).resolve().parents[1] / "config" / "source_registry.toml"
@@ -57,6 +57,12 @@ FORMULA_DICTIONARY = [
         "Excel formula": "=[@[Lot Expiration]]-AsOfDateCell",
         "V9 / Streamlit logic": "Calendar days between Lot Expiration and the inferred inventory as-of date.",
         "Unit": "Days",
+    },
+    {
+        "Field": "Days Left",
+        "Excel formula": "=IF([@[Days To Exp]]<0,\"Expired\",IF([@[Days To Exp]]>365,INT(([@[Days To Exp]]-365)/30.4375)&\" months, \"&INT(MOD([@[Days To Exp]]-365,30.4375))&\" days to SD\",IF([@[Days To Exp]]>182.5,INT(([@[Days To Exp]]-182.5)/30.4375)&\" months, \"&INT(MOD([@[Days To Exp]]-182.5,30.4375))&\" days to 6 M\",INT([@[Days To Exp]]/30.4375)&\" months, \"&INT(MOD([@[Days To Exp]],30.4375))&\" days to Expire\")))",
+        "V9 / Streamlit logic": "V9-style human-readable countdown derived from Days To Exp; restored to the lot-level UI.",
+        "Unit": "Text",
     },
     {
         "Field": "Dollar Amount",

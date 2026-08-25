@@ -40,8 +40,8 @@ APP_CSS = """
         background: rgba(255,255,255,.075);
     }
     [data-testid="stSidebar"] .stRadio div[role="radiogroup"] label:has(input:checked) {
-        background: #1769d2;
-        color: #ffffff;
+        background: #dcecff;
+        color: #0b3b70;
         box-shadow: 0 5px 18px rgba(0,70,170,.22);
     }
     [data-testid="stSidebar"] .stRadio div[role="radiogroup"] label > div:first-child { display: none; }
@@ -227,7 +227,7 @@ APP_CSS = """
     div[data-testid="stDataFrame"] { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
     .small-note { color: var(--muted); font-size: .76rem; }
     h2, h3 { color: var(--navy-900); letter-spacing: -.02em; }
-    .stButton > button, .stDownloadButton > button {
+    .stButton > button {
         border-radius: 8px;
         border-color: #cbd5df;
         font-weight: 650;
@@ -240,5 +240,24 @@ APP_CSS = """
         .kpi-card { min-height: 102px; }
         .block-container { padding-left: 1rem; padding-right: 1rem; }
     }
+    /* v2.1: Excel-like global filter behavior */
+    .filter-title {
+        font-weight: 760;
+        color: #17324d;
+        font-size: .82rem;
+        margin: -.1rem 0 .45rem;
+    }
+    [data-testid="stMultiSelect"] div[data-baseweb="select"] > div {
+        min-height: 42px;
+        border-radius: 8px;
+    }
+    [data-testid="stMultiSelect"] [data-baseweb="tag"] { max-width: 100%; }
+    [data-testid="stMultiSelect"] [data-baseweb="tag"] span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .kpi-value { font-size: clamp(1.10rem, 1.55vw, 1.62rem) !important; }
+
 </style>
 """
