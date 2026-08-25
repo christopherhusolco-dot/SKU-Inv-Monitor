@@ -1,0 +1,47 @@
+version = "2.0"
+
+[application]
+name = "SKU Inventory Monitor"
+source_policy = "Four centralized BOM sources are transformed into one deploy snapshot."
+
+[[sources]]
+key = "current_inventory"
+label = "Current Inventory"
+required = true
+patterns = ["current inventory"]
+preferred_sheets = ["Export", "CurrentInventory_Raw", "Current Inventory"]
+header_tokens = ["Item Number", "Lot Number", "Quantity"]
+business_role = "Lot/status inventory quantity and expiration source"
+
+[[sources]]
+key = "product_cogs"
+label = "Product COGS"
+required = true
+patterns = ["product cogs"]
+preferred_sheets = ["Sheet1", "COGS_Raw"]
+header_tokens = ["Material", "Amount", "Valid From"]
+business_role = "Latest open-ended unit COGS source"
+
+[[sources]]
+key = "product_master"
+label = "Product Master"
+required = true
+patterns = ["product master"]
+exclude_patterns = ["status mapping"]
+preferred_sheets = ["Product Master", "ProductMaster_Raw"]
+header_tokens = ["Mat Code", "NDC", "Description"]
+business_role = "Material, NDC, product line, supplier and product status source"
+
+[[sources]]
+key = "forecast"
+label = "SCM Actual vs. Forecast"
+required = true
+patterns = ["scm actual vs forecast", "scm actual vs. forecast", "actual vs forecast"]
+preferred_sheets = ["Forecast_Supply Plan", "Forecast Supply Plan"]
+header_tokens = ["SAP Mat No.", "NDC Code", "Product Description"]
+business_role = "Monthly demand forecast source"
+
+[[excluded_sources]]
+key = "status_mapping"
+label = "Product Status Mapping Master"
+reason = "Reserved for Inventory Reconciliation Control Tower Phase 2.5; intentionally not loaded by this application."

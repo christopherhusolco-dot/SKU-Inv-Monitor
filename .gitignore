@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.streamlit/secrets.toml
+.DS_Store
+cache/
+*.log
+
+# Raw BOM workbooks stay in the centralized source folder.
+# Only inventory_snapshot.csv.gz, snapshot_metadata.json and inventory_history.csv
+# are intended for the private deploy repository.
+data/*.xlsx
+data/*.xlsm
+data/*.xls
+data/*.xlsb
+data/~$*

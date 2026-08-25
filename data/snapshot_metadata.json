@@ -1,0 +1,79 @@
+{
+  "snapshot_version": 2,
+  "created_at_utc": "2026-08-25T15:11:50+00:00",
+  "source_label": "Centralized BOM",
+  "as_of_date": "2026-08-25",
+  "as_of_confidence": 1.0,
+  "inventory_rows": 3545,
+  "forecast_months": [
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11",
+    "2026-12",
+    "2027-01",
+    "2027-02",
+    "2027-03",
+    "2027-04",
+    "2027-05",
+    "2027-06",
+    "2027-07"
+  ],
+  "warnings": [],
+  "source_manifest": [
+    {
+      "Source": "Current Inventory",
+      "Required": "Yes",
+      "Status": "Loaded",
+      "File": "Current Inventory.xlsx",
+      "Mode": "Separate source file",
+      "Sheet": "Export",
+      "Header Row": 1,
+      "Rows": 3547,
+      "Note": "",
+      "Modified UTC": "2026-08-25T14:43:37.730180+00:00"
+    },
+    {
+      "Source": "Product COGS",
+      "Required": "Yes",
+      "Status": "Loaded",
+      "File": "Product COGS.xlsx",
+      "Mode": "Separate source file",
+      "Sheet": "Sheet1",
+      "Header Row": 1,
+      "Rows": 1078,
+      "Note": "",
+      "Modified UTC": "2026-08-25T14:43:37.662181+00:00"
+    },
+    {
+      "Source": "Product Master",
+      "Required": "Yes",
+      "Status": "Loaded",
+      "File": "Product Master.xlsx",
+      "Mode": "Separate source file",
+      "Sheet": "Product Master",
+      "Header Row": 1,
+      "Rows": 534,
+      "Note": "",
+      "Modified UTC": "2026-08-25T14:43:37.930179+00:00"
+    },
+    {
+      "Source": "SCM Actual vs. Forecast",
+      "Required": "Yes",
+      "Status": "Loaded",
+      "File": "SCM Actual vs. Forecast.xlsx",
+      "Mode": "Separate source file",
+      "Sheet": "Forecast_Supply Plan",
+      "Header Row": 2,
+      "Rows": 337,
+      "Note": "",
+      "Modified UTC": "2026-08-25T14:43:38.238177+00:00"
+    }
+  ],
+  "excluded_sources": [
+    {
+      "label": "Product Status Mapping Master",
+      "reason": "Reserved for Inventory Reconciliation Control Tower Phase 2.5."
+    }
+  ]
+}
